@@ -8,6 +8,8 @@ class Hi_lo
     puts """Welcome to the hi lo game.\nheres how it works we have a card, and you have to guess if it is a high or low card"
     puts "2 - 7 are low cards, 8 - K are high cards and aces always win."
     @deck = Deck.new
+    puts "whats your bet?"
+    @bet = gets.strip.to_i
     puts "is the card a hi or lo card? type hi or lo"
     game
   end
@@ -28,7 +30,7 @@ class Hi_lo
   def game
     @guess = gets.strip.to_s
     @number = @deck.ranks.sample.downcase
-    puts @number
+    puts "the card was: #{@number} so..."
     low_value = "234567"
     high_value = "8910jqk"
     if @guess != "lo" && @guess != "hi"
@@ -39,7 +41,7 @@ class Hi_lo
     elsif @guess == "hi" && high_value.include?(@number)
       puts "good job bro"
     elsif @number.include?("a")
-      puts "it was an ace i win"
+      puts "I win"
     else
       puts "sorry you lose!"
     end
