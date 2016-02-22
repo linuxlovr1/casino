@@ -14,7 +14,6 @@ class Deck
  attr_accessor :cards, :ranks
 
  # Gets called when you call the new method to create an instance
- deck = Deck.new
  def initialize
    @ranks = %w(A 2 3 4 5 6 7 8 9 10 J Q K)
    @suits = %w(Spades Diamonds Clubs Hearts)
