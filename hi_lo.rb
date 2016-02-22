@@ -16,7 +16,7 @@ class Hi_lo
 
   def start
     puts "whats your bet?"
-    puts "you have #{player.amount}"
+    puts "you have #{@player.amount}"
     @bet = gets.strip.to_i
     if @bet > @player.amount
       puts "youre poor bro, new amount"
