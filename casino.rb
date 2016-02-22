@@ -25,9 +25,8 @@ class Casino
       when 3
         #Slots
       when 4
-
         puts "Thank you come again, your final amount was #{amount}"
-      end
+    end
   end
 end
 
