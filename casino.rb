@@ -3,6 +3,7 @@ require_relative "player"
 require_relative "hi_lo"
 
 class Casino
+
   def initialize
     puts "---Welcome to the Ruby Casino---\nplease type your name"
     print ">"
@@ -25,7 +26,7 @@ def menu_choice
       exit
     else
       puts "sorry that wasnt a selection, try again"
-      menu_choice
+      menu
     end
 end
 
@@ -37,5 +38,6 @@ end
     menu_choice
   end
 end
+
 
 game = Casino.new

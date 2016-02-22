@@ -1,4 +1,5 @@
 require_relative "deck"
+require_relative "player"
 
 class Hi_lo
   attr_accessor :guess
@@ -8,20 +9,40 @@ class Hi_lo
     puts "2 - 7 are low cards, 8 - K are high cards and aces always win."
     @deck = Deck.new
     puts "is the card a hi or lo card? type hi or lo"
-    @guess = gets.strip
-    low
+    game
   end
 
-  def low
-    puts @deck.ranks
+  def continue
+    puts "would you like to play again? y/n"
+    y_n = gets.strip.downcase
+    if y_n == "y"
+      initialize
+    elsif y_n == "n"
+      puts "thanks for playing"
+    else
+      puts "didnt understand"
+      continue
+    end
   end
 
   def game
-
-    if @guess == "lo" && number >= 7
-      puts "good job"
+    @guess = gets.strip.to_s
+    @number = @deck.ranks.sample.downcase
+    puts @number
+    low_value = "234567"
+    high_value = "8910jqk"
+    if @guess != "lo" && @guess != "hi"
+      puts "didnt understand try again"
+      game
+    elsif @guess == "lo" && low_value.include?(@number)
+      puts "good job bro"
+    elsif @guess == "hi" && high_value.include?(@number)
+      puts "good job bro"
+    elsif @number.include?("a")
+      puts "it was an ace i win"
     else
-      puts "wrong"
+      puts "sorry you lose!"
     end
+    continue
   end
 end
