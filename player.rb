@@ -3,9 +3,9 @@ class Player
 		@player_name = gets.strip
 		puts "Your player name is #{@player_name}"
 		wallet
-    end
+  end
     
-    def wallet
-    	@amount = rand(100..1000)
-    end
+  def wallet
+    @amount = rand(100..1000)
+  end
 end

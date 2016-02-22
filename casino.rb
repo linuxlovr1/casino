@@ -17,12 +17,13 @@ class Casino
       when 1
         puts "total amount: #{@amount}"
         menu
+        #Wallet
       when 2
         #Hi-Lo
       when 3
         #Slots
       when 4
         "Thank you come again, your final amount was #{@amount}"
+    end
   end
-
 end
