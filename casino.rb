@@ -18,13 +18,12 @@ class Casino
     puts "1. See Wallet\n2. Play Hi-Lo\n3. Play Slots\n4. Exit"
     menu_choice
   end
-  
+
   def menu_choice
     @where = gets.strip.to_i
     case @where
       when 1
         puts "total amount: #{@amount}"
-        menu
       when 2
         hi_lo = Hi_lo.new(@player)
       when 3

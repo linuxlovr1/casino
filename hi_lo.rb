@@ -67,9 +67,8 @@ class Hi_lo
   end
 
   def subtract
-    amount = @player.amount
     puts "sorry you lose"
-    amount -= @bet
+    @player.amount -= @bet
     if amount <= 0
       puts "sorry bro, you lose"
       Exit
