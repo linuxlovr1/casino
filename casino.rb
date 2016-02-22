@@ -1,3 +1,5 @@
+require_relative "player"
+
 class Casino
 
   def initialize
@@ -13,7 +15,8 @@ class Casino
     @where = gets.strip.to_i
     case @where
       when 1
-        #Wallet
+        puts "total amount: #{@amount}"
+        menu
       when 2
         #Hi-Lo
       when 3
