@@ -13,8 +13,7 @@ class Hi_lo
   end
 
   def low
-    @number = @deck.ranks
-    puts @number
+    puts @deck.ranks
   end
 
   def game
