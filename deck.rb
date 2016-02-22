@@ -11,7 +11,7 @@ end
 
 class Deck
  # Getter and Setter methods for rank, suit and color
- attr_accessor :cards, :ranks
+ attr_accessor :cards, :ranks, :suits
  # Gets called when you call the new method to create an instance
  def initialize
    @ranks = %w(A 2 3 4 5 6 7 8 9 10 J Q K)

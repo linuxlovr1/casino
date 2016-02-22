@@ -1,6 +1,7 @@
 require "pry"
 require_relative "player"
 require_relative "hi_lo"
+require_relative "slots"
 
 class Casino
 
@@ -27,7 +28,7 @@ class Casino
       when 2
         hi_lo = Hi_lo.new(@player)
       when 3
-        #Slots
+        slots = Slots.new(@player)
       when 4
         puts "Thank you come again, your final amount was #{@amount}"
         exit
