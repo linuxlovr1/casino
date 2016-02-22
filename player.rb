@@ -1,10 +1,12 @@
 class Player
+  attr_accessor :name, :amount
+
 	def initialize
-		@player_name = gets.strip
-		puts "Your player name is #{@player_name}"
+    @name = gets.strip
+		puts "Your player name is #{@name}"
 		wallet
     end
-    
+
     def wallet
     	@amount = rand(100..1000)
     end
