@@ -5,7 +5,7 @@ class Hi_lo
 
   def initialize
     puts """Welcome to the hi lo game.\nheres how it works we have a card, and you have to guess if it is a high or low card"
-    puts "2 - 7 are low cards, 8 - K are high cards and aces allways win."
+    puts "2 - 7 are low cards, 8 - K are high cards and aces always win."
     @deck = Deck.new
     puts "is the card a hi or lo card? type hi or lo"
     @guess = gets.strip

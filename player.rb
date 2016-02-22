@@ -9,5 +9,6 @@ class Player
 
     def wallet
     	@amount = rand(100..1000)
+      puts "your starting amount is: #{@amount}"
     end
 end
