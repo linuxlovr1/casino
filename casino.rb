@@ -31,7 +31,5 @@ class Casino
       end
   end
 end
-=======
-end
 
 game = Casino.new
