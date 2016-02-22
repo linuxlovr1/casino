@@ -2,7 +2,7 @@ class Card
  # Getter and Setter methods for rank, suit and color
  attr_accessor :rank, :suit, :color
  # Gets called when you call the new method to create an instance
-card = Card.new('10', 'K', 'Black')
+card = Card.new
  def initialize(rank, suit, color)
    @rank = rank
    @suit = suit
@@ -33,4 +33,5 @@ class Deck
    end
  end
 end
+
 d = Deck.new
