@@ -26,4 +26,8 @@ class Casino
         "Thank you come again, your final amount was #{@amount}"
     end
   end
+<<<<<<< HEAD
 end
+=======
+end
+>>>>>>> casino menu changes and deck
