@@ -20,9 +20,8 @@ class Casino
       when 1
         puts "total amount: #{amount}"
         menu
-        #Wallet
       when 2
-        #Hi-Lo
+        hi_lo = Hi_lo.new
       when 3
         #Slots
       when 4
