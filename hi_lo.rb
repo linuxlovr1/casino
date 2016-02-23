@@ -16,7 +16,8 @@ class Hi_lo
 
   def start
     puts "whats your bet?"
-    puts "you have #{@player.amount}"
+    puts "you have $#{@player.amount}"
+    print "$"
     @bet = gets.strip.to_i
     bet
   end
@@ -69,16 +70,16 @@ class Hi_lo
   def add
     puts "good job bro"
     @player.amount += @bet
-    puts "your new amount is #{@player.amount}\n\n"
+    puts "your new amount is $#{@player.amount}\n\n"
   end
 
   def subtract
     puts "sorry you lose"
     @player.amount -= @bet
     if @player.amount <= 0
-      puts "sorry bro, you have no money" 
+      puts "sorry bro, you have no money"
     else
-      puts "your new amount is #{@player.amount}\n\n"
+      puts "your new amount is $#{@player.amount}\n\n"
       continue
     end
 

@@ -16,6 +16,7 @@ class Slots
  def bet
    puts "You have $#{@player.amount}"
    puts "Each pull is $2.00\nHow much do you want to deposit?\n\n"
+   print "$"
    @deposit = gets.strip.to_i
    bet_choice
 end
@@ -29,7 +30,7 @@ def bet_choice
     bet
   else
     @player.amount -= @deposit
-    puts "#{@player.amount} remaining\n\n"
+    puts "$#{@player.amount} remaining\n\n"
     @remaining_balance = @deposit
     pull_the_lever
   end
