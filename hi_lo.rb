@@ -26,6 +26,9 @@ class Hi_lo
     if @bet > @player.amount
       puts "youre poor bro, new amount\n\n"
       start
+    elsif @bet <= 0
+      puts "you need to place a bet"
+      start
     else
       puts "is the card a hi or lo card? type hi or lo\n\n"
       game
