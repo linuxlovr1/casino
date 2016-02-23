@@ -4,6 +4,7 @@ require_relative "deck"
 require_relative "player"
 
 class Hi_lo
+  attr_accessor :guess
 
   def initialize(player)
     @player = player

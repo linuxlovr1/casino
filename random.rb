@@ -6,14 +6,14 @@ class RandomEvent
     case event
     when 2
       grandma = rand(1..300)
-      puts "Got attacked by Grandma and lost $#{grandma}" 
+      puts "Got attacked by Grandma and lost $#{grandma}\n\n" 
       @player.amount -= grandma
     when 4
       robber = rand(1..500)
       @player.amount += robber
-      puts "Found a drunk man you rob him. Found $#{robber}"
+      puts "Found a drunk man you rob him. Found $#{robber}\n\n"
     when 6
-      puts "Got attacked by a tiger, everyone dies."
+      puts "Got attacked by a tiger, everyone dies.\n\n"
       exit
     else
     end
@@ -21,7 +21,7 @@ class RandomEvent
     if @player.amount <= 0
       puts "sorry you lost all your money"
       exit
-    else  
+    else
     end
   end
 end
