@@ -29,13 +29,14 @@ def bet_choice
     bet
   else
     @player.amount -= @deposit
+    puts "#{@player.amount} remaining\n\n"
     @remaining_balance = @deposit
     pull_the_lever
   end
 end
 
 def pull_the_lever
-  puts "remaining: #{@remaining_balance}"
+  puts "Remaining amount to pull: $#{@remaining_balance}"
   puts "Press enter to pull the lever"
   gets
   @remaining_balance -= 2
@@ -75,12 +76,11 @@ end
 def subtract
   if @remaining_balance <= 0
     puts "no more money!"
-  else
   end
 end
 
 def continue
-    puts "would you like to play again? y/n\n\n"
+    puts "would you like to play again? y/nn\n\n"
     y_n = gets.strip.downcase
     if y_n == "y"
       pull_the_lever
