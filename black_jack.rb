@@ -12,6 +12,7 @@ class BlackJack
       puts "How much would you like to bet?"
       puts "You have $#{@player.amount}"
       bet = gets.strip
+      deal
     end 
 
 
@@ -25,5 +26,6 @@ class BlackJack
       elsif rand_card.include?(@ace)
         puts @card_value = 1
       end
+      puts rand_card
     end
 end
