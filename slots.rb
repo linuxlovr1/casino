@@ -64,10 +64,10 @@ def did_you_win
     @remaining_balance += @deposit
     puts @remaining_balance
   elsif @first_wheel == @second_wheel || @second_wheel == @third_wheel || @first_wheel == @third_wheel
-    puts "You won 10.00"
+    puts "You won $10"
     @remaining_balance += 10
   else
-    puts "You lost 10.00"
+    puts "You lost $10"
     @remaining_balance -= 10
     subtract
   end
@@ -81,7 +81,7 @@ def subtract
 end
 
 def continue
-    puts "would you like to play again? y/nn\n\n"
+    puts "would you like to play again? y/n\n\n"
     y_n = gets.strip.downcase
     if y_n == "y"
       pull_the_lever
