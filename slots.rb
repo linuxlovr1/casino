@@ -2,7 +2,7 @@ require_relative 'player'
 require_relative 'deck'
 class Slots
   attr_accessor
-  
+
     def initialize(player)
       @player = player
       @deck = Deck.new
@@ -45,15 +45,21 @@ def did_you_win
     @remaining_balance += @deposit
     puts @remaining_balance
   elsif @first_wheel == @second_wheel || @second_wheel == @third_wheel || @first_wheel == @third_wheel
-    puts "You won 4.00"
-    @remaining_balance += 4
-  else 
-    puts "You lost 2.00"
-    @remaining_balance -= 2
+    puts "You won 10.00"
+    @remaining_balance += 10
+  else
+    puts "You lost 10.00"
+    @remaining_balance -= 10
+    subtract
   end
   continue
 end
 
+def subtract
+  if @remaining_balance <= 0
+    puts "no more money!"
+  end
+end
 
 def continue
     puts "would you like to play again? y/n"
