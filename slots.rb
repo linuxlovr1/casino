@@ -65,10 +65,10 @@ def did_you_win
     puts @remaining_balance
   elsif @first_wheel == @second_wheel || @second_wheel == @third_wheel || @first_wheel == @third_wheel
     puts "You won $10"
-    @remaining_balance += 10
+    @player.amount += 10
   else
     puts "You lost $10"
-    @remaining_balance -= 10
+    @player.amount -= 10
     subtract
   end
   continue
