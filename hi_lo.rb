@@ -42,7 +42,6 @@ class Hi_lo
       puts "I win"
       subtract
     else
-      puts "sorry you lose!"
       subtract
     end
     continue
@@ -71,8 +70,8 @@ class Hi_lo
     puts "sorry you lose"
     @player.amount -= @bet
     if @player.amount <= 0
-      puts "sorry bro, you lose"
-      Exit
+      puts "sorry bro, you have no money"
+      exit
     else
       puts "your new amount is #{@player.amount}"
     end
