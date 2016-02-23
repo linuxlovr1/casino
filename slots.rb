@@ -16,15 +16,17 @@ class Slots
  def bet
    puts "You have $#{@player.amount}"
    puts "Each pull is $2.00\nHow much do you want to deposit?"
-   deposit = gets.strip.to_i
-   @player.amount -= deposit
+   @deposit = gets.strip.to_i
+   @player.amount -= @deposit
    puts "#{@player.amount} remaining"
+   @remaining_balance = @deposit
    pull_the_lever
 end
 
 def pull_the_lever
   puts "Press enter to pull the lever"
   gets
+  @remaining_balance -= 2
   spin_wheels
 end
 
@@ -39,11 +41,15 @@ end
 
 def did_you_win
   if @first_wheel == @second_wheel && @second_wheel == @third_wheel
-    puts "You won!"
+    puts "You won #{@deposit}!"
+    @remaining_balance += @deposit
+    puts @remaining_balance
   elsif @first_wheel == @second_wheel || @second_wheel == @third_wheel || @first_wheel == @third_wheel
-    puts "You broke even."
+    puts "You won 4.00"
+    @remaining_balance += 4
   else 
-    puts "You lost"
+    puts "You lost 2.00"
+    @remaining_balance -= 2
   end
   continue
 end
@@ -56,6 +62,8 @@ def continue
       pull_the_lever
     elsif y_n == "n"
       puts "thanks for playing"
+      @player.amount += @remaining_balance
+      puts "Remaining balance #{@player.amount}"
     else
       puts "didnt understand"
       continue
