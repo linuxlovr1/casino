@@ -76,11 +76,12 @@ end
 def subtract
   if @remaining_balance <= 0
     puts "no more money!"
+  else
   end
 end
 
 def continue
-    puts "would you like to play again? y/nn\n\n"
+    puts "would you like to play again? y/n\n\n"
     y_n = gets.strip.downcase
     if y_n == "y"
       pull_the_lever

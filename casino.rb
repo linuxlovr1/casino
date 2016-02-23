@@ -2,6 +2,7 @@ require "pry"
 require_relative "player"
 require_relative "hi_lo"
 require_relative "slots"
+require_relative "random"
 
 class Casino
   attr_accessor :player
@@ -41,8 +42,10 @@ class Casino
       when 1
         puts "total amount: #{@amount}"
       when 2
+        random = RandomEvent.new(@player)
         hi_lo = Hi_lo.new(@player)
       when 3
+        random = RandomEvent.new(@player)
         slots = Slots.new(@player)
       when 4
         @player = Player.new
