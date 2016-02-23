@@ -8,9 +8,9 @@ class Hi_lo
 
   def initialize(player)
     @player = player
+    @deck = Deck.new
     puts """Welcome #{player.name} to the hi lo game.\nheres how it works we have a card, and you have to guess if it is a high or low card"
     puts "2 - 7 are low cards, 8 - K are high cards and aces always win."
-    @deck = Deck.new
     start
   end
 
@@ -18,6 +18,10 @@ class Hi_lo
     puts "whats your bet?"
     puts "you have #{@player.amount}"
     @bet = gets.strip.to_i
+    bet
+  end
+
+  def bet
     if @bet > @player.amount
       puts "youre poor bro, new amount"
       start
@@ -31,16 +35,17 @@ class Hi_lo
     @guess = gets.strip.to_s
     @number = @deck.ranks.sample.downcase
     puts "the card was: #{@number} so..."
-    low_value = "234567"
-    high_value = "8910jqk"
+    @low_value = "234567"
+    @high_value = "8910jqk"
+    game_guess
+  end
+
+  def game_guess
     if @guess != "lo" && @guess != "hi"
       puts "didnt understand try again"
       game
-    elsif @guess == "lo" && low_value.include?(@number) || @guess == "hi" && high_value.include?(@number)
+    elsif @guess == "lo" && @low_value.include?(@number) || @guess == "hi" && @high_value.include?(@number)
       add
-    elsif @number.include?("a")
-      puts "I win"
-      subtract
     else
       subtract
     end
@@ -75,5 +80,6 @@ class Hi_lo
     else
       puts "your new amount is #{@player.amount}"
     end
+
   end
 end
