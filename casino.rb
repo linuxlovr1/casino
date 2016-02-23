@@ -4,11 +4,12 @@ require_relative "hi_lo"
 require_relative "slots"
 
 class Casino
+  attr_accessor :player
 
+  @player_list = []
   def initialize
-    puts "---Welcome to the Ruby Casino---\nplease type your name"
+    puts "---Welcome to the Ruby Casino---"
     print ">"
-    @player = Player.new
     menu
   end
 
@@ -16,7 +17,7 @@ class Casino
     @name = @player.name
     @amount = @player.amount
     puts "okay #{@name} lets start. what would you like to do?"
-    puts "1. See Wallet\n2. Play Hi-Lo\n3. Play Slots\n4. Exit"
+    puts "1. See Wallet\n2. Play Hi-Lo\n3. Play Slots\n4. New Player\n5. Player Menu\n6. Exit"
     menu_choice
   end
 
@@ -30,6 +31,10 @@ class Casino
       when 3
         slots = Slots.new(@player)
       when 4
+        #new player
+      when 5
+        #list of all players
+      when 6
         puts "Thank you come again, your final amount was #{@amount}"
         exit
       else
