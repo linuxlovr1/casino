@@ -29,7 +29,6 @@ def bet_choice
     bet
   else
     @player.amount -= @deposit
-    puts "#{@player.amount} remaining\n\n"
     @remaining_balance = @deposit
     pull_the_lever
   end
