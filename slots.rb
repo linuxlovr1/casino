@@ -9,25 +9,43 @@ class Slots
       @wheel_1 = @deck.suits
       @wheel_2 = @deck.suits
       @wheel_3 = @deck.suits
-      puts "Welcome to the slot machine! Have a pull!"
+      puts "Welcome to the slot machine! Have a pull!\n\n"
       bet
     end
 
  def bet
    puts "You have $#{@player.amount}"
-   puts "Each pull is $2.00\nHow much do you want to deposit?"
+   puts "Each pull is $2.00\nHow much do you want to deposit?\n\n"
    @deposit = gets.strip.to_i
-   @player.amount -= @deposit
-   puts "#{@player.amount} remaining"
-   @remaining_balance = @deposit
-   pull_the_lever
+   bet_choice
+end
+
+def bet_choice
+  if @deposit <= 0
+    puts "you need to bet\n\n"
+    bet
+  elsif @deposit > @player.amount
+    puts "you dont have enough money\n\n"
+    bet
+  else
+    @player.amount -= @deposit
+    puts "#{@player.amount} remaining\n\n"
+    @remaining_balance = @deposit
+    pull_the_lever
+  end
 end
 
 def pull_the_lever
+  puts "remaining: #{@remaining_balance}"
   puts "Press enter to pull the lever"
   gets
   @remaining_balance -= 2
-  spin_wheels
+    if @remaining_balance <= 0
+      puts "deposit more money\n\n"
+      bet
+    else
+      spin_wheels
+  end
 end
 
 def spin_wheels
@@ -35,7 +53,7 @@ def spin_wheels
    @first_wheel = @wheel_1.sample
    @second_wheel = @wheel_2.sample
    @third_wheel = @wheel_3.sample
-   puts "#{@first_wheel} #{@second_wheel} #{@third_wheel}"
+   puts "#{@first_wheel} #{@second_wheel} #{@third_wheel}\n\n"
    did_you_win
 end
 
@@ -62,7 +80,7 @@ def subtract
 end
 
 def continue
-    puts "would you like to play again? y/n"
+    puts "would you like to play again? y/nn\n\n"
     y_n = gets.strip.downcase
     if y_n == "y"
       pull_the_lever

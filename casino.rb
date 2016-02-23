@@ -9,7 +9,7 @@ class Casino
 
   def initialize
     @player_list = []
-    puts "---Welcome to the Ruby Casino---"
+    puts "---Welcome to the Ruby Casino---\n\n"
     @player = Player.new
     @player_list << @player
     menu
@@ -18,17 +18,17 @@ class Casino
   def menu
     @name = @player.name
     @amount = @player.amount
-    puts "okay #{@name} lets start. what would you like to do?"
+    puts "okay #{@name} lets start. what would you like to do?\n\n"
     puts "1. See Wallet\n2. Play Hi-Lo\n3. Play Slots\n4. New Player\n5. Player Menu\n6. Exit"
     menu_choice
   end
-  
+
   def switch_player
-    puts "Select Player: "
+    puts "Select Player:\n\n"
     @player_list.each_with_index {  |name, i| puts "#{i+1}: #{name.name} $#{name.amount}" }
     current_player
   end
-  
+
   def current_player
     player_select = gets.strip.to_i
     @player = @player_list[player_select - 1]
@@ -59,5 +59,5 @@ class Casino
   end
 end
 
- 
+
 game = Casino.new

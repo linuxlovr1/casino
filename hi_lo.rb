@@ -10,7 +10,7 @@ class Hi_lo
     @player = player
     @deck = Deck.new
     puts """Welcome #{player.name} to the hi lo game.\nheres how it works we have a card, and you have to guess if it is a high or low card"
-    puts "2 - 7 are low cards, 8 - K are high cards and aces always win."
+    puts "2 - 7 are low cards, 8 - K are high cards and aces always win.\n\n"
     start
   end
 
@@ -23,10 +23,10 @@ class Hi_lo
 
   def bet
     if @bet > @player.amount
-      puts "youre poor bro, new amount"
+      puts "youre poor bro, new amount\n\n"
       start
     else
-      puts "is the card a hi or lo card? type hi or lo"
+      puts "is the card a hi or lo card? type hi or lo\n\n"
       game
     end
   end
@@ -44,12 +44,13 @@ class Hi_lo
     if @guess != "lo" && @guess != "hi"
       puts "didnt understand try again"
       game
+      continue
     elsif @guess == "lo" && @low_value.include?(@number) || @guess == "hi" && @high_value.include?(@number)
       add
+      continue
     else
       subtract
     end
-    continue
   end
 
   def continue
@@ -58,9 +59,9 @@ class Hi_lo
     if y_n == "y"
       start
     elsif y_n == "n"
-      puts "thanks for playing"
+      puts "thanks for playing\n"
     else
-      puts "didnt understand"
+      puts "didnt understand\n"
       continue
     end
   end
@@ -68,7 +69,7 @@ class Hi_lo
   def add
     puts "good job bro"
     @player.amount += @bet
-    puts "your new amount is #{@player.amount}"
+    puts "your new amount is #{@player.amount}\n\n"
   end
 
   def subtract
@@ -76,9 +77,8 @@ class Hi_lo
     @player.amount -= @bet
     if @player.amount <= 0
       puts "sorry bro, you have no money"
-      exit
     else
-      puts "your new amount is #{@player.amount}"
+      puts "your new amount is #{@player.amount}\n\n"
     end
 
   end
