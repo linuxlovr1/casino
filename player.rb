@@ -2,7 +2,7 @@ class Player
   attr_accessor :name, :amount
 
 	def initialize
-    puts "Type your Name please"
+    puts "Type the name for the new player please"
     @name = gets.strip
 		puts "Your player name is #{@name}"
 		wallet
