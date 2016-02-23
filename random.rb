@@ -5,11 +5,13 @@ class RandomEvent
     event = rand(1..15)
     case event
     when 2
-      puts "Got attacked by Grandma lost $100" 
-      @player.amount -= 100
+      grandma = rand(1..300)
+      puts "Got attacked by Grandma and lost $#{grandma}" 
+      @player.amount -= grandma
     when 4
-      puts "Found a drunk man you rob him. Found $200"
-      @player.amount += 200
+      robber = rand(1..500)
+      @player.amount += robber
+      puts "Found a drunk man you rob him. Found $#{robber}"
     when 6
       puts "Got attacked by a tiger, everyone dies."
       exit
