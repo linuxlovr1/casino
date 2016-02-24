@@ -13,9 +13,13 @@ class BlackJack
       puts "How much would you like to bet?"
       puts "You have $#{@player.amount}"
       bet = gets.strip
+<<<<<<< HEAD
       card = @deck.deal
       play_bj
       
+=======
+      deal
+>>>>>>> 5bbd5cb45221c3557efc3561c0ed47e1ff3c90ce
     end 
 
 
@@ -31,6 +35,7 @@ class BlackJack
           play_bj
         end
       end
+<<<<<<< HEAD
         
       def yes_deal
         @hand.push(@deck.deal.bjv, @deck.deal.bjv)
@@ -66,3 +71,8 @@ class BlackJack
 
 end
 
+=======
+      puts rand_card
+    end
+end
+>>>>>>> 5bbd5cb45221c3557efc3561c0ed47e1ff3c90ce
