@@ -13,13 +13,8 @@ class BlackJack
       puts "How much would you like to bet?"
       puts "You have $#{@player.amount}"
       bet = gets.strip
-<<<<<<< HEAD
       card = @deck.deal
       play_bj
-      
-=======
-      deal
->>>>>>> 5bbd5cb45221c3557efc3561c0ed47e1ff3c90ce
     end 
 
 
@@ -27,7 +22,8 @@ class BlackJack
         puts "Deal Cards? y/n"
         bj_yn = gets.strip.downcase
         if bj_yn == "y"
-          yes_deal
+          @hand.push(@deck.deal.bjv, @deck.deal.bjv)
+          deal_or_hit
         elsif "n"
           puts "thanks for playing!"
         else 
@@ -35,16 +31,21 @@ class BlackJack
           play_bj
         end
       end
-<<<<<<< HEAD
-        
-      def yes_deal
-        @hand.push(@deck.deal.bjv, @deck.deal.bjv)
-        @first_deal = "#{@hand[0]} and #{@hand[1]}"
-        puts @first_deal
+
+      
+      def deal_or_hit
+        @hand.each {|card| print "#{card} "}
         @hand_total = @hand.reduce(:+)
-        puts "(#{@hand_total})\n\n"
-        hit_or_stay
-        
+        puts " (#{@hand_total})"
+          if @hand_total > 21 && @hand.include?(11)
+            @deck.deal.bjv[0] == 1
+            puts "(#{@hand_total}) "
+            hit_or_stay
+          elsif @hand_total > 21 
+            puts "#{@hand_total}... Busted!"
+          else  
+            hit_or_stay
+          end
       end
       
       def hit_or_stay
@@ -62,17 +63,16 @@ class BlackJack
         
       def hit
         new_card = @deck.deal.bjv
-        puts new_card
+          puts new_card
         @hand << new_card
-        puts @first_deal + "#{@hand_total}"
+        deal_or_hit
         hit_or_stay
       end  
+      
+      def stay
+        computer_play
+      end
 
 
 end
 
-=======
-      puts rand_card
-    end
-end
->>>>>>> 5bbd5cb45221c3557efc3561c0ed47e1ff3c90ce
