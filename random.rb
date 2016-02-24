@@ -2,11 +2,11 @@ require_relative "player"
 class RandomEvent
   def initialize(player)
     @player = player
-    event = rand(1..15)
+    event = rand(1..10)
     case event
     when 2
       grandma = rand(1..300)
-      puts "Got attacked by Grandma and lost $#{grandma}\n\n" 
+      puts "Got attacked by Grandma and lost $#{grandma}\n\n"
       @player.amount -= grandma
     when 4
       robber = rand(1..500)

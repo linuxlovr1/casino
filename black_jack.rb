@@ -3,20 +3,20 @@ require_relative "player"
 class BlackJack
   def initialize(player)
     @player = player
-    @deck = Deck.new
-    @hand = []
-    @computer_hand = [] 
     puts "Welcom to Ruby BlackJack!"
     start
-  end  
-    
+  end
+
     def start
+      @hand = []
+      @computer_hand = []
+      @deck = Deck.new
       puts "How much would you like to bet?"
       puts "You have $#{@player.amount}"
       @bet = gets.strip.to_i
       @player.amount -= @bet
       play_bj
-    end 
+    end
 
 
       def play_bj
@@ -27,54 +27,59 @@ class BlackJack
           deal_or_hit
         elsif "n"
           puts "thanks for playing!"
-          
-        else 
+
+        else
           puts "what did you say?"
           play_bj
         end
       end
 
-      
+
       def deal_or_hit
         @hand.each {|card| print "#{card} "}
         @hand_total = @hand.reduce(:+)
         puts " (#{@hand_total})"
           if @hand_total > 21 && @hand.include?(11)
-            @deck.bjv[0] = 1
+            #@deck.deal.bjv = 1
             puts "(#{@hand_total}) "
             hit_or_stay
-          elsif @hand_total > 21 
+          elsif @hand_total > 21
             puts "#{@hand_total}... Busted!"
             start
           elsif
             @hand_total == 21
             puts "BLACKJACK!"
-          else  
+            puts "you won"
+            win == @bet * 2
+            @player.amount << win
+            puts "you have won #{win} and now have #{@player.amount} in your wallet"
+            start
+          else
             hit_or_stay
           end
       end
-      
+
       def hit_or_stay
         puts "what would you like to do?\n1.Hit\n2.Stay"
         hitstay = gets.strip.to_i
          if hitstay == 1
            hit
-         elsif hitstay == 2 
+         elsif hitstay == 2
            stay
          else
            puts "didn't get that"
            hit_or_stay
-         end  
-      end  
-        
+         end
+      end
+
       def hit
         new_card = @deck.deal.bjv
-          puts new_card
+        puts new_card
         @hand << new_card
         deal_or_hit
         hit_or_stay
-      end  
-      
+      end
+
       def stay
         @computer_hand.push(deck.deal.bjv, deck.deal.bjv)
         puts "Dealer's hand is:"
@@ -84,17 +89,16 @@ class BlackJack
           if @hand_total > 21 && @hand.include?(11)
             @deck.bjv[0] = 1
             puts "(#{@computer_hand_total}) "
-          elsif @computer_hand_total > 21 
+          elsif @computer_hand_total > 21
             puts "#{@hand_total}...Dealer Busted!"
-          else  
-          
+          else
+
           end
       end
-      
+
       def win_or_lose
-        
+
       end
 
 
 end
-
