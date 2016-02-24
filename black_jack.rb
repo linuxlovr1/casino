@@ -5,6 +5,7 @@ class BlackJack
     @player = player
     @deck = Deck.new
     @hand = []
+    @computer_hand = [] 
     puts "Welcom to Ruby BlackJack!"
     start
   end  
@@ -12,8 +13,8 @@ class BlackJack
     def start
       puts "How much would you like to bet?"
       puts "You have $#{@player.amount}"
-      bet = gets.strip
-      card = @deck.deal
+      @bet = gets.strip.to_i
+      @player.amount -= @bet
       play_bj
     end 
 
@@ -26,6 +27,7 @@ class BlackJack
           deal_or_hit
         elsif "n"
           puts "thanks for playing!"
+          
         else 
           puts "what did you say?"
           play_bj
@@ -38,11 +40,15 @@ class BlackJack
         @hand_total = @hand.reduce(:+)
         puts " (#{@hand_total})"
           if @hand_total > 21 && @hand.include?(11)
-            @deck.deal.bjv[0] == 1
+            @deck.bjv[0] = 1
             puts "(#{@hand_total}) "
             hit_or_stay
           elsif @hand_total > 21 
             puts "#{@hand_total}... Busted!"
+            start
+          elsif
+            @hand_total == 21
+            puts "BLACKJACK!"
           else  
             hit_or_stay
           end
@@ -56,7 +62,7 @@ class BlackJack
          elsif hitstay == 2 
            stay
          else
-           "didn't get that"
+           puts "didn't get that"
            hit_or_stay
          end  
       end  
@@ -70,7 +76,23 @@ class BlackJack
       end  
       
       def stay
-        computer_play
+        @computer_hand.push(deck.deal.bjv, deck.deal.bjv)
+        puts "Dealer's hand is:"
+        @computer_hand.each {|card| print "#{card} "}
+        @hand_total = @computer_hand.reduce(:+)
+        puts " (#{@hand_total})"
+          if @hand_total > 21 && @hand.include?(11)
+            @deck.bjv[0] = 1
+            puts "(#{@computer_hand_total}) "
+          elsif @computer_hand_total > 21 
+            puts "#{@hand_total}...Dealer Busted!"
+          else  
+          
+          end
+      end
+      
+      def win_or_lose
+        
       end
 
 
